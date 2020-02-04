@@ -1,0 +1,28 @@
+概要：　猫の画像をみんなで投稿、ダウンロードできるアプリ
+
+目的：　自分の猫や、町で見かけた猫の画像をみんなで共有したい
+
+機能：　画像一覧表示、画像選択で（拡大表示、コメント表示）会員機能
+　　    会員機能：　作成、ダウンロード、投稿、コメント投稿
+
+データベース: mysql
+    テーブル: users   : id(int primary autoincrement unique)
+                        name(varchar)
+                        emalil(varchar)
+                        password(varchar)
+                        updated_at(timestamp)
+                        created_at(timestamp)
+              pictures: id(int,autoincrement,primary,unique)
+                        user_id(int)(user)
+                        filename
+                        created_at(timestamp)
+                        updated_at(timestamp)
+                        delete_flag(boolean,0 default,1 deleted)
+              comments: id(int autoincrement primary unique)
+                        user_id(int)(usrs)
+                        picture_id(int)(pictures)
+                        content(txt)
+                        created_at(timestamp)
+                        updated_at(timestamp)
+                        delete_flag(boolean,0 default,1 deleted )
+                        
